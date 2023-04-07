@@ -1,0 +1,7 @@
+帅K	将k	King
+仕A	士a	Advisor
+相B	象b	Bishop
+馬N	馬n	Knight
+車R	車r	Rook
+炮C	炮c	Cannon
+兵P	卒p	Pawn

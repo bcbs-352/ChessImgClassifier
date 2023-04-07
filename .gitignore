@@ -1,0 +1,14 @@
+build
+.idea
+.vscode
+_pycache
+log
+
+
+origin
+Sample_Images
+*_old
+*_backup
+
+*.pth
+*.onnx
