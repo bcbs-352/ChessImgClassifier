@@ -8,5 +8,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories("C:\\Program Files (x86)\\Eigen3\\include")
 
-add_executable(DataEnhance model_test.cpp)
+add_executable(DataEnhance main.cpp)
 target_link_libraries(DataEnhance ${OpenCV_LIBRARIES})

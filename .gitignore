@@ -1,7 +1,7 @@
 build
 .idea
 .vscode
-_pycache
+_pycache_
 log
 
 

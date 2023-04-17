@@ -9,8 +9,8 @@ vector<string> chess_list = {"ºÚÊ¿", "ºìÊË", "ºÚÏó", "ºìÏà", "ºÚÅÚ", "ºìÅÚ", "ºÚ
 
 void ModelTest()
 {
-    dnn::Net net = dnn::readNetFromONNX("../myModel_new.onnx");
-    Mat testImg = imread("../Sample_Images/2.jpg");
+    dnn::Net net = dnn::readNetFromONNX("../model.onnx");
+    Mat testImg = imread("../origin/11.jpg");
     Mat dst;
     resize(testImg, dst, Size(H, W), INTER_LANCZOS4);
     imshow("norm", dst);

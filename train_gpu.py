@@ -157,14 +157,15 @@ class MyModel(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(2),
             nn.Flatten(),
+            nn.Dropout(),
             nn.Linear(64 * 4 * 4, 512),
-            nn.ReLU(inplace=True),
+            #nn.ReLU(inplace=True),
             nn.Linear(512, 512),
             nn.ReLU(inplace=True),
             nn.Dropout(),
-            nn.Linear(512, 256),
+            nn.Linear(512, 512),
             nn.ReLU(inplace=True),
-            nn.Linear(256, 14)
+            nn.Linear(512, 14)
         )
 
     def forward(self, x):
@@ -208,7 +209,7 @@ writer = SummaryWriter('./log')
 total_train_step = 0
 total_test_step = 0
 
-epoch = 200
+epoch = 600
 learning_rate = 0.01
 while epoch > 0:
 
@@ -262,9 +263,9 @@ while epoch > 0:
 
 # 保存为pth/onnx模型
 myModel.eval()
-torch.save(myModel, 'model_tmp.pth')
+torch.save(myModel, 'model.pth')
 generate_input = Variable(torch.randn(1, 3, 32, 32, device='cuda'))
-torch.onnx.export(myModel, generate_input, "model_tmp.onnx", export_params=True, verbose=True, input_names=["input"],
+torch.onnx.export(myModel, generate_input, "model_3.onnx", export_params=True, verbose=True, input_names=["input"],
                   output_names=["output"], opset_version=11)
 
 writer.close()

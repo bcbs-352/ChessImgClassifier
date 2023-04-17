@@ -149,21 +149,28 @@ int main(int argc, char *argv[])
         Mat tmp2 = Rotate(img, rand() % 360);
         // GaussianBlur(img, gausBlur_img, Size(5, 5), 0.8, 0.8);
 
-        SaveImage(PepperNoise(img, 0.05), fileName[i] + "_noise1.jpg");
-        SaveImage(PepperNoise(tmp, 0.05), fileName[i] + "_noise2.jpg");
+        SaveImage(PepperNoise(img, 0.03), fileName[i] + "_noise1.jpg");
+        SaveImage(PepperNoise(img, 0.01), fileName[i] + "_noise2.jpg");
+        SaveImage(PepperNoise(img, 0.005), fileName[i] + "_noise3.jpg");
+        SaveImage(PepperNoise(tmp, 0.03), fileName[i] + "_noise4.jpg");
         SaveImage(MedianBlur(img, 5), fileName[i] + "_medianBlur1.jpg");
         SaveImage(MedianBlur(tmp1, 5), fileName[i] + "_medianBlur2.jpg");
         SaveImage(MedianBlur(tmp2, 5), fileName[i] + "_medianBlur3.jpg");
 
-        SaveImage(ModifyBright(tmp1, 0.6), fileName[i] + "_dark.jpg");
-        SaveImage(ModifyBright(tmp2, 1.3), fileName[i] + "_bright.jpg");
+        SaveImage(ModifyBright(img, 0.7), fileName[i] + "_dark0.jpg");
+        SaveImage(ModifyBright(img, 0.85), fileName[i] + "_dark0.jpg");
+        SaveImage(ModifyBright(img, 1.2), fileName[i] + "_bright1.jpg");
+        SaveImage(ModifyBright(img, 1.3), fileName[i] + "_bright1.jpg");
+        SaveImage(ModifyBright(tmp1, 0.6), fileName[i] + "_dark2.jpg");
+        SaveImage(ModifyBright(tmp2, 1.3), fileName[i] + "_bright2.jpg");
 
         SaveImage(AmplifyImage(img), fileName[i] + "_amp1.jpg");
         SaveImage(AmplifyImage(img), fileName[i] + "_amp2.jpg");
         SaveImage(AmplifyImage(tmp1), fileName[i] + "_amp3.jpg");
-        SaveImage(LessenImage(img, 0.5), fileName[i] + "_less1.jpg");
-        SaveImage(LessenImage(tmp, 0.5), fileName[i] + "_less2.jpg");
-        SaveImage(LessenImage(tmp2, 0.5), fileName[i] + "_less3.jpg");
+        SaveImage(LessenImage(img, 0.2), fileName[i] + "_less1.jpg");
+        SaveImage(LessenImage(img, 0.1), fileName[i] + "_less2.jpg");
+        SaveImage(LessenImage(tmp, 0.2), fileName[i] + "_less2.jpg");
+        SaveImage(LessenImage(tmp2, 0.2), fileName[i] + "_less3.jpg");
     }
     waitKey();
     return 0;
